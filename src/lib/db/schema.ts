@@ -17,9 +17,12 @@ export const users = pgTable("user", {
     email: text("email").notNull(),
     emailVerified: timestamp("emailVerified", { mode: "date" }),
     image: text("image"),
-    challenges: text("challenges").notNull().default("push_ups squats leg_stretch burpee arm_stretch_2 arm_stretch_1 jumping_jacks"),
-    points: integer("points"),
-
+    challenges: text("challenges")
+        .notNull()
+        .default(
+            "push_ups squats leg_stretch burpee arm_stretch_2 arm_stretch_1 jumping_jacks"
+        ),
+    points: integer("points").default(0),
 });
 
 export const accounts = pgTable(

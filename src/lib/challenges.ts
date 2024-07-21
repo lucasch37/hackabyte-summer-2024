@@ -1,46 +1,53 @@
 export const challenges = [
     {
-        name: "push_ups",
+        name: "Push Ups",
+        id: "push_ups",
         latitude: 47.6534444444,
-        longitude: 122.141222222,
+        longitude: -122.141222222,
         difficulty: 4,
     },
     {
-        name: "squats",
+        name: "Squats",
+        id: "squats",
         latitude: 47.6517222222,
-        longitude: 122.140861111,
-        difficulty: 3
+        longitude: -122.140861111,
+        difficulty: 3,
     },
     {
-        name: "leg_stretch",
+        name: "Leg Stretch",
+        id: "leg_stretch",
         latitude: 47.65225,
-        longitude: 122.14275,
-        difficulty: 2
+        longitude: -122.14275,
+        difficulty: 2,
     },
     {
-        name: "burpee",
+        name: "Burpee",
+        id: "burpee",
         latitude: 47.6532222222,
-        longitude: 122.142888889,
-        difficulty: 5
+        longitude: -122.142888889,
+        difficulty: 5,
     },
     {
-        name: "arm_stretch_2",
+        name: "Arm Stretch",
+        id: "arm_stretch_1",
         latitude: 47.6534722222,
-        longitude: 47.6534722222,
-        difficulty: 1
+        longitude: -122.141824,
+        difficulty: 1,
     },
     {
-        name: "arm_stretch_1",
+        name: "Arm Stretch",
+        id: "arm_stretch_2",
         latitude: 47.6534444444,
-        longitude: 122.142638889,
-        difficulty: 1
+        longitude: -122.142638889,
+        difficulty: 1,
     },
     {
-        name: "jumping_jacks",
+        name: "Jumping Jacks",
+        id: "jumping_jacks",
         latitude: 47.6528333333,
-        longitude: 122.141777778,
-        difficulty: 3
+        longitude: -122.141777778,
+        difficulty: 3,
     },
-]
+];
 
-export type ChallengeType = typeof challenges[number];
+export type ChallengeType = (typeof challenges)[number];
