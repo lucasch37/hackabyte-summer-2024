@@ -9,7 +9,7 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "Forever Fit",
+    title: "ForeverFit",
     description:
         "An engaging fitness platform for elders to get in the best shape of their lives!",
 };

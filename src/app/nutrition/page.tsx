@@ -56,7 +56,7 @@ const page = (props: Props) => {
                         strokeWidth={1}
                     />
                     <Wheat
-                        size={80}
+                        size={50}
                         className="text-[#f3f3f1] col-span-4"
                         fill="#f3f3f1"
                         strokeWidth={1}
