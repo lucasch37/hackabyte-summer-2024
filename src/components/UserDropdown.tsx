@@ -12,13 +12,14 @@ import {
 import UserAvatar from "./UserAvatar";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
-import { LogOut } from "lucide-react";
+import { LogOut, Star } from "lucide-react";
 
 type Props = {
     user: Pick<User, "name" | "image" | "email">;
+    stars: number
 };
 
-const UserDropdown = ({ user }: Props) => {
+const UserDropdown = ({ user, stars }: Props) => {
 
     return (
         <DropdownMenu>
@@ -44,6 +45,11 @@ const UserDropdown = ({ user }: Props) => {
                         )}
                     </div>
                 </div>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                    <Star size={20} className="mr-1 text-yellow-400" fill="yellow" />
+                    {stars} FitPoints
+                </DropdownMenuItem>
                 <DropdownMenuSeparator />
 
                 <DropdownMenuItem

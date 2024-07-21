@@ -73,7 +73,7 @@ const GoogleMap = ({ challenges, Id }: Props) => {
                 <Map
                     style={{
                         maxWidth: "100vh",
-                        height: "70vh",
+                        height: "68vh",
                         overflowX: "hidden",
                         overflowY: "hidden",
                     }}
@@ -132,6 +132,7 @@ const GoogleMap = ({ challenges, Id }: Props) => {
                                     ? "medium-border"
                                     : "hard-border"
                                 }`}
+                            key={i}
                         >
                             <div
                                 className={`flex bg-gradient-to-r w-full p-3 rounded-t-lg items-center justify-center text-white font-semibold text-2xl border-b-2 ${d === 0
@@ -141,7 +142,7 @@ const GoogleMap = ({ challenges, Id }: Props) => {
                                         : "hard-panel"
                                     }`}
                             >
-                                {d === 0 ? "Easy" : "Medium"} Challenge
+                                {d === 0 ? "Easy" : d === 1 ? "Medium" : "Hard"} Challenge
                             </div>
                             {/* <div className="flex flex-row pb-2 items-center">
                                 <h1 className="font-semibold text-2xl">
@@ -185,7 +186,7 @@ const GoogleMap = ({ challenges, Id }: Props) => {
                             </div>
                         </div>
                     );
-                } else if (challenge.id === "push_ups") return <p className="absolute top-0">{distance}</p>;
+                } else return;
             })}
         </>
     );

@@ -11,7 +11,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function dl(difficulty: number) {
-    return difficulty <= 3 ? 0 : difficulty <= 6 ? 1 : 2;
+    return difficulty <= 2 ? 0 : difficulty <= 4 ? 1 : 2;
 }
 
 export function challenge_dist(
@@ -23,7 +23,7 @@ export function challenge_dist(
     if (!location.loading && !location.error) {
         distance = Math.sqrt(
             Math.pow(location.latitude! - challenge.latitude!, 2) +
-                Math.pow(location.longitude! - challenge.longitude, 2)
+            Math.pow(location.longitude! - challenge.longitude, 2)
         );
     }
     return distance;
