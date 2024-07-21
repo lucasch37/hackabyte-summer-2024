@@ -30,27 +30,29 @@ export default async function Home() {
 
     return (
         <div className="flex flex-col flex-1 min-h-0">
-            <div className="flex flex-col gap-2 py-6 px-6 font-medium">
-                <p>Good afternoon, {session.user.name?.split(" ")[0]}!</p>
-                <div className="flex flex-row justify-between items-center">
-                    <p className="w-1/2 text-4xl">
-                        Let's get
-                        <span className="font-black"> moving!</span>
-                    </p>
-                    <div className="grid grid-cols-2">
-                        <Zap
-                            size={30}
-                            className="text-[#f3f3f1]"
-                            fill="#f3f3f1"
-                            strokeWidth={1}
-                        />
-                        <Zap
-                            size={80}
-                            className="text-[#f3f3f1] col-span-4"
-                            fill="#f3f3f1"
-                            strokeWidth={1}
-                        />
+            <div className="flex flex-row justify-between py-6 px-6 font-medium">
+                <div className="flex flex-col gap-2">
+                    <p>Good afternoon, {session.user.name?.split(" ")[0]}!</p>
+                    <div className="flex flex-row items-center">
+                        <p className="text-4xl">
+                            Let's get
+                            <span className="font-black"> moving!</span>
+                        </p>
                     </div>
+                </div>
+                <div className="grid grid-cols-2">
+                    <Zap
+                        size={30}
+                        className="text-[#f3f3f1]"
+                        fill="#f3f3f1"
+                        strokeWidth={1}
+                    />
+                    <Zap
+                        size={80}
+                        className="text-[#f3f3f1] col-span-4"
+                        fill="#f3f3f1"
+                        strokeWidth={1}
+                    />
                 </div>
             </div>
             <div className="flex flex-col flex-1 bg-[#f3f3f1] px-6 pt-6 gap-3 min-h-0">

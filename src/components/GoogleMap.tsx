@@ -30,7 +30,7 @@ type Props = {
 };
 
 const GoogleMap = ({ challenges, Id }: Props) => {
-    const location = useGeolocation();
+    const location = useGeolocation({ enableHighAccuracy: true });
     const [loading, setLoading] = React.useState(false);
 
     if (location.loading) {
@@ -120,28 +120,26 @@ const GoogleMap = ({ challenges, Id }: Props) => {
             {challenges.map((challenge, i) => {
                 const distance = Math.sqrt(
                     Math.pow(location.latitude! - challenge.latitude!, 2) +
-                        Math.pow(location.longitude! - challenge.longitude, 2)
+                    Math.pow(location.longitude! - challenge.longitude, 2)
                 );
-                if (distance < 0.00004) {
+                if (distance < 0.0001) {
                     const d = dl(challenge.difficulty);
                     return (
                         <div
-                            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl w-[90vw] flex flex-col gap-2 items-center shadow-2xl ${
-                                d === 0
-                                    ? "easy-border"
-                                    : d === 1
+                            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl w-[90vw] flex flex-col gap-2 items-center shadow-2xl ${d === 0
+                                ? "easy-border"
+                                : d === 1
                                     ? "medium-border"
                                     : "hard-border"
-                            }`}
+                                }`}
                         >
                             <div
-                                className={`flex bg-gradient-to-r w-full p-3 rounded-t-lg items-center justify-center text-white font-semibold text-2xl border-b-2 ${
-                                    d === 0
-                                        ? "easy-panel"
-                                        : d === 1
+                                className={`flex bg-gradient-to-r w-full p-3 rounded-t-lg items-center justify-center text-white font-semibold text-2xl border-b-2 ${d === 0
+                                    ? "easy-panel"
+                                    : d === 1
                                         ? "medium-panel"
                                         : "hard-panel"
-                                }`}
+                                    }`}
                             >
                                 {d === 0 ? "Easy" : "Medium"} Challenge
                             </div>
@@ -163,17 +161,15 @@ const GoogleMap = ({ challenges, Id }: Props) => {
                             </video>{" "}
                             <div className="gap-1 flex items-start w-full">
                                 <button
-                                    className={`w-full py-2 rounded-b-xl border-t-2 ${
-                                        d === 0
-                                            ? "easy-button"
-                                            : d === 1
+                                    className={`w-full py-2 rounded-b-xl border-t-2 ${d === 0
+                                        ? "easy-button"
+                                        : d === 1
                                             ? "medium-button"
                                             : "hard-button"
-                                    } transition duration-150 ease-in-out ${
-                                        loading
+                                        } transition duration-150 ease-in-out ${loading
                                             ? "opacity-50 cursor-not-allowed flex items-center gap-2 justify-center"
                                             : ""
-                                    }`}
+                                        }`}
                                     onClick={async () => {
                                         setLoading(true);
                                         await addPoints(challenge.difficulty);
@@ -189,7 +185,7 @@ const GoogleMap = ({ challenges, Id }: Props) => {
                             </div>
                         </div>
                     );
-                } else return;
+                } else if (challenge.id === "push_ups") return <p className="absolute top-0">{distance}</p>;
             })}
         </>
     );

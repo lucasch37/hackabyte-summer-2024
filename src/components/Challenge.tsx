@@ -13,7 +13,7 @@ type Props = {
 
 const Challenge = ({ challenge }: Props) => {
     const router = useRouter();
-    const location = useGeolocation();
+    const location = useGeolocation({ enableHighAccuracy: true });
     const distance = challenge_dist(challenge, location);
 
     return (
@@ -24,13 +24,12 @@ const Challenge = ({ challenge }: Props) => {
             }}
         >
             <div
-                className={`flex rounded-l-xl ${
-                    challenge.difficulty < 3
+                className={`flex rounded-l-xl ${challenge.difficulty < 3
                         ? "bg-green-600"
                         : challenge.difficulty < 5
-                        ? "bg-orange-600"
-                        : "bg-red-600"
-                } bg-green-600 justify-center items-center py-3 px-4 font-semibold text-white`}
+                            ? "bg-orange-600"
+                            : "bg-red-600"
+                    } bg-green-600 justify-center items-center py-3 px-4 font-semibold text-white`}
             >
                 {challenge.difficulty}
             </div>
