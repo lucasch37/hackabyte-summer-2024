@@ -41,7 +41,7 @@ const page = async (props: Props) => {
 
     return (
         <div className="flex flex-col flex-1 min-h-0 gap-4">
-            <div className="flex flex-col gap-8 p-6">
+            <div className="flex flex-col gap-3 p-6 pb-2">
                 <div className="flex flex-row justify-between">
                     <p className="text-4xl">
                         The Global
