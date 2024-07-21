@@ -19,6 +19,7 @@ const config = {
       padding: "2rem",
       screens: {
         "2xl": "1400px",
+        "xs": "380px"
       },
     },
     extend: {
@@ -99,7 +100,7 @@ function addVariablesForColors({ addBase, theme }: any) {
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
   );
- 
+
   addBase({
     ":root": newVars,
   });

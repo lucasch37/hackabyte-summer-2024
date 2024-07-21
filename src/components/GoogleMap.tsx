@@ -23,6 +23,7 @@ import { Button } from "./ui/button";
 import { addPoints } from "@/lib/actions/addPoints";
 import { deleteChallenge } from "@/lib/actions/deleteChallenge";
 import { dl } from "@/lib/utils";
+import { useToast } from "./ui/use-toast";
 
 type Props = {
     challenges: ChallengeType[];
@@ -30,6 +31,7 @@ type Props = {
 };
 
 const GoogleMap = ({ challenges, Id }: Props) => {
+    const { toast } = useToast()
     const location = useGeolocation({ enableHighAccuracy: true });
     const [loading, setLoading] = React.useState(false);
 
@@ -176,6 +178,10 @@ const GoogleMap = ({ challenges, Id }: Props) => {
                                         await addPoints(challenge.difficulty);
                                         await deleteChallenge(challenge.id);
                                         setLoading(false);
+                                        toast({
+                                            title: "Congrats!",
+                                            description: `You earned ${challenge.difficulty} FitPoints!`,
+                                        })
                                     }}
                                 >
                                     I'm finished!

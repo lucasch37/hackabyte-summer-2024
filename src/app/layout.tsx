@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import MenuBar from "@/components/MenuBar";
 import Navbar from "@/components/Navbar";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
                     <Navbar />
                     {children}
                     <MenuBar />
+                    <Toaster />
                 </div>
                 <div className="hidden md:flex justify-center items-center min-h-screen text-white font-bold text-7xl text-center bg-gradient-to-b from-[#2980b9] to-[#6dd5fa] px-10">
                     ForeverFit is designed for mobile devices. Please visit this
