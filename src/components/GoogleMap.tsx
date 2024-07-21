@@ -70,10 +70,13 @@ const GoogleMap = ({ challenges, Id }: Props) => {
     return (
         <>
             <APIProvider apiKey={"AIzaSyC1WsyCrqz8L7g7mAi2S-6qAqFpHc7myLo"}>
-                X: {location.latitude?.toFixed(4)} Y:{" "}
-                {location.longitude?.toFixed(4)}
                 <Map
-                    style={{ width: "100vw", height: "80vh" }}
+                    style={{
+                        maxWidth: "100vh",
+                        height: "70vh",
+                        overflowX: "hidden",
+                        overflowY: "hidden",
+                    }}
                     defaultCenter={{
                         lat:
                             selectedChallenge !== null
